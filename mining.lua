@@ -90,7 +90,8 @@ end
 local chest_slot = findChestslot()
 local torch_slot = findTorchslot()
 
-print(chest_slot .. "\n" .. torch_slot)
+print(chest_slot)
+print(torch_slot)
 
 function placeTorch()
     if (hasTorch == true) then
