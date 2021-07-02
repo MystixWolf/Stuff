@@ -3,12 +3,18 @@ local ACCEPTED_FUELS = {
     "minecraft:coal"
 }
 
-local PLACEABLE_ITEMS = {
+local TORCH = {
     "minecraft:torch",
+}
+
+local CHEST = {
+    "minecraft:chest",
 }
 
 local torchPlacement = 0
 local torch_slot = 1
+local chest_slot = 1
+local fullInventory = false
 
 function checkFuel()
     local currentFuellevel = turtle.getFuelLevel()
@@ -33,6 +39,7 @@ function Mine()
     turtle.digUp()
     turtle.digDown()
     placeTorch()
+    placeChest()
     turtle.turnLeft()
     turtle.dig()
     turtle.forward()
@@ -56,9 +63,20 @@ end
 function findTorchslot()
     for i = 1, 16 do
         local currentItem = turtle.getItemDetail()
-        for n = 1, #PLACEABLE_ITEMS do
-            if (currentItem.name == PLACEABLE_ITEMS[n]) then
+        for n = 1, #TORCH do
+            if (currentItem.name == TORCH[n]) then
                 torch_slot = i
+            end
+        end
+    end
+end
+
+function findChestslot()
+    for i = 1, 16 do
+        local currentItem = turtle.getItemDetail()
+        for n = 1, #CHEST do
+            if (currentItem.name == CHEST[n]) then
+                chest_slot = i
             end
         end
     end
@@ -70,6 +88,39 @@ function placeTorch()
         turtle.placeDown()
         torchPlacement = 0
     end
+end
+
+function checkInventory()
+    local currentItem = turtle.getItemDetail(16)
+    if(currentItem ~= nil) then
+        if(turtle.getItemCount(16) > 32) then
+            fullInventory = true
+        end
+    end
+end
+
+function dumpInventory()
+    for i = 3, 16 do
+        turtle.select(i)
+        turtle.dropDown()
+    end
+end
+
+function placeChest()
+    if (fullInventory == true) then
+        if(turtle.inspectDown() == TORCH[1]) then
+            turtle.turnLeft()
+            turtle.turnLeft()
+            turtle.forward()
+            turtle.turnLeft()
+            turtle.turnLeft()
+            turtle.select(chest_slot)
+            turtle.placeDown()
+            dumpInventory()
+            turtle.forward()
+        end
+    end
+    
 end
 
 while true do
