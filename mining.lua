@@ -62,7 +62,7 @@ end
 
 function findTorchslot()
     for i = 1, 16 do
-        local currentItem = turtle.getItemDetail()
+        local currentItem = turtle.getItemDetail(i)
         for n = 1, #TORCH do
             if (currentItem.name == TORCH[n]) then
                 torch_slot = i
@@ -73,7 +73,7 @@ end
 
 function findChestslot()
     for i = 1, 16 do
-        local currentItem = turtle.getItemDetail()
+        local currentItem = turtle.getItemDetail(i)
         for n = 1, #CHEST do
             if (currentItem.name == CHEST[n]) then
                 chest_slot = i
