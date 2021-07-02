@@ -12,8 +12,6 @@ local CHEST = {
 }
 
 local torchPlacement = 0
-local torch_slot = 1
-local chest_slot = 1
 local fullInventory = false
 
 function checkFuel()
