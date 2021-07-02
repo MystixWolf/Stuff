@@ -150,7 +150,7 @@ function placeChest()
     
 end
 
-while (stop = false) do
+while (stop == false) do
     checkFuel()
     checkInventory()                  
     Mine()
