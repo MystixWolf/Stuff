@@ -3,6 +3,13 @@ local ACCEPTED_FUELS = {
     "minecraft:coal"
 }
 
+local PLACEABLE_ITEMS = {
+    "minecraft:torch",
+}
+
+local torchPlacement = 0
+local torch_slot = 1
+
 function checkFuel()
     local currentFuellevel = turtle.getFuelLevel()
 
@@ -45,7 +52,28 @@ function Mine()
     turtle.forward()
 end
 
+function findTorchslot()
+    for i = 1, 16 do
+        local currentItem = turtle.getItemDetail()
+        for n = 1, #PLACEABLE_ITEMS do
+            if (currentItem.name == PLACEABLE_ITEMS[n]) then
+                torch_slot = i
+            end
+        end
+    end
+end
+
+function placeTorch(torch_slot)
+    if (torchPlacement == 11) then
+        turtle.select(torch_slot)
+        turtle.placeDown()
+        torchPlacement = 0
+    end
+end
+
 while true do
     checkFuel()
     Mine()
+    torchPlacement = torchPlacement + 1
+    placeTorch()
 end
