@@ -13,7 +13,6 @@ local CHEST = {
 
 local torchPlacement = 0
 local fullInventory = false
-local hasTorch = false
 local torch_slot = 1
 local chest_slot = 1
 local stop = false
@@ -85,8 +84,7 @@ function dumpInventory()
 end
 
 function placeTorch()
-    print(hasTorch)
-    if (hasTorch == true) then
+    if (torch_slot ~= nil) then
         if (torchPlacement == 11) then
             turtle.select(torch_slot)
             turtle.placeDown()
