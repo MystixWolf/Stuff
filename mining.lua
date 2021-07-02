@@ -28,6 +28,7 @@ function Mine()
     turtle.digDown()
     turtle.forward()
 end
+
 while true do
     checkFuel()
     Mine()
