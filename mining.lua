@@ -12,8 +12,8 @@ local CHEST = {
 }
 
 local torchPlacement = 0
-local torch_slot = 1
-local chest_slot = 1
+local torch_slot = findTorchslot()
+local chest_slot = findChestslot()
 local fullInventory = false
 
 function checkFuel()
@@ -124,7 +124,8 @@ function placeChest()
 end
 
 while true do
-    checkFuel()                  
+    checkFuel()
+    checkInventory()                  
     Mine()
     torchPlacement = torchPlacement + 1
 end
