@@ -86,6 +86,9 @@ function findChestslot()
     end
 end
 
+print(chest_slot)
+print(torch_slot)
+
 function placeTorch()
     if (torchPlacement == 11) then
         turtle.select(torch_slot)
