@@ -122,6 +122,10 @@ function placeChest()
             turtle.placeDown()
             dumpInventory()
             turtle.forward()
+        else
+            turtle.select(chest_slot)
+            turtle.placeDown()
+            dumpInventory()
         end
     end
     
