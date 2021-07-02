@@ -128,6 +128,7 @@ function placeChest()
             turtle.placeDown()
             dumpInventory()
         end
+        fullInventory = false
     end
     
 end
