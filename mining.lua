@@ -32,6 +32,7 @@ end
 function Mine()
     turtle.digUp()
     turtle.digDown()
+    placeTorch()
     turtle.turnLeft()
     turtle.dig()
     turtle.forward()
@@ -72,8 +73,7 @@ function placeTorch()
 end
 
 while true do
-    checkFuel()
+    checkFuel()                  
     Mine()
     torchPlacement = torchPlacement + 1
-    placeTorch()
 end
