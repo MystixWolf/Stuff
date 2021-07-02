@@ -64,7 +64,7 @@ function findTorchslot()
 end
 
 function placeTorch(torch_slot)
-    if (torchPlacement == 11) then
+    if (torchPlacement == 1) then
         turtle.select(torch_slot)
         turtle.placeDown()
         torchPlacement = 0
