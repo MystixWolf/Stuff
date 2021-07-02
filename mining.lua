@@ -16,9 +16,6 @@ local torch_slot = 1
 local chest_slot = 1
 local fullInventory = false
 
-findChestslot()
-findTorchslot()
-
 function checkFuel()
     local currentFuellevel = turtle.getFuelLevel()
 
@@ -128,6 +125,8 @@ end
 
 while true do
     checkFuel()
+    findChestslot()
+    findTorchslot()
     checkInventory()                  
     Mine()
     torchPlacement = torchPlacement + 1
