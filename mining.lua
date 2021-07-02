@@ -84,7 +84,8 @@ function dumpInventory()
 end
 
 function placeTorch()
-    if (torch_slot ~= nil) then
+    local currentItem = turtle.getItemDetail(torch_slot)
+    if (currentItem.name == TORCH) then
         if (torchPlacement == 11) then
             turtle.select(torch_slot)
             turtle.placeDown()
