@@ -12,9 +12,12 @@ local CHEST = {
 }
 
 local torchPlacement = 0
-local torch_slot = findTorchslot()
-local chest_slot = findChestslot()
+local torch_slot = 1
+local chest_slot = 1
 local fullInventory = false
+
+findChestslot()
+findTorchslot()
 
 function checkFuel()
     local currentFuellevel = turtle.getFuelLevel()
