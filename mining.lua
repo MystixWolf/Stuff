@@ -87,8 +87,11 @@ function findChestslot()
     end
 end
 
-local chest_slot = findChestslot()
-local torch_slot = findTorchslot()
+local chest_slot = 1
+local torch_slot = 1
+
+findTorchslot()
+findChestslot()
 
 print(chest_slot)
 print(torch_slot)
