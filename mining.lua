@@ -22,8 +22,4 @@ function checkFuel()
     end
 end
 
-function Mine()
-    
-end
-
 checkFuel()
