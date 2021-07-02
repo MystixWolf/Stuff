@@ -100,6 +100,7 @@ function placeTorch()
         fullInventory = true
         placeChest()
         stop = true
+        os.exit()
         return stop
     end
     
@@ -112,11 +113,9 @@ function checkInventory()
         end
     end
 
-    for i = 1, 2 do
-        local currentItem = turtle.getItemDetail(i)
-        if(currentItem.name ~= TORCH) then
-            hasTorch = false
-        end
+    local currentItem = turtle.getItemDetail(torch_slot)
+    if (currentItem ~= TORCH) then
+        hasTorch = false
     end
 end
 
