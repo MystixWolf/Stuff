@@ -67,7 +67,7 @@ function findTorchslot()
             for n = 1, #TORCH do
                 if (currentItem.name == TORCH[n]) then
                     hasTorch = true
-                    torch_slot = i
+                    return i
                 end
             end
         end
@@ -80,15 +80,15 @@ function findChestslot()
         if (currentItem ~= nil) then
             for n = 1, #CHEST do
                 if (currentItem.name == CHEST[n]) then
-                    chest_slot = i
+                    return i
                 end
             end
         end
     end
 end
 
-local chest_slot = 1
-local torch_slot = 1
+local chest_slot = findChestslot()
+local torch_slot = findTorchslot()
 
 function placeTorch()
     if (hasTorch == true) then
@@ -101,7 +101,7 @@ function placeTorch()
         fullInventory = true
         placeChest()
         stop = true
-        return os.exit()
+        os.exit()
     end
     
 end
