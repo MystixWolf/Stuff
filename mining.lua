@@ -37,31 +37,6 @@ function checkFuel()
     end
 end
 
-function Mine()
-    turtle.digUp()
-    turtle.digDown()
-    placeTorch()
-    placeChest()
-    turtle.turnLeft()
-    turtle.dig()
-    turtle.forward()
-    turtle.digUp()
-    turtle.digDown()
-    turtle.turnRight()
-    turtle.turnRight()
-    turtle.forward()
-    turtle.dig()
-    turtle.forward()
-    turtle.digUp()
-    turtle.digDown()
-    turtle.turnLeft()
-    turtle.turnLeft()
-    turtle.forward()
-    turtle.turnRight()
-    turtle.dig()
-    turtle.forward()
-end
-
 function findTorchslot()
     for i = 1, 16 do
         local currentItem = turtle.getItemDetail(i)
@@ -69,7 +44,7 @@ function findTorchslot()
             for n = 1, #TORCH do
                 if (currentItem.name == TORCH[n]) then
                     hasTorch = true
-                    return i
+                    torch_slot = i
                 end
             end
         end
@@ -82,15 +57,12 @@ function findChestslot()
         if (currentItem ~= nil) then
             for n = 1, #CHEST do
                 if (currentItem.name == CHEST[n]) then
-                    return i
+                    chest_slot = i
                 end
             end
         end
     end
 end
-
-chest_slot = findChestslot()
-torch_slot = findTorchslot()
 
 function placeTorch()
     if (hasTorch == true) then
@@ -149,6 +121,31 @@ function placeChest()
         turtle.select(1)
     end
     
+end
+
+function Mine()
+    turtle.digUp()
+    turtle.digDown()
+    placeTorch()
+    placeChest()
+    turtle.turnLeft()
+    turtle.dig()
+    turtle.forward()
+    turtle.digUp()
+    turtle.digDown()
+    turtle.turnRight()
+    turtle.turnRight()
+    turtle.forward()
+    turtle.dig()
+    turtle.forward()
+    turtle.digUp()
+    turtle.digDown()
+    turtle.turnLeft()
+    turtle.turnLeft()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.dig()
+    turtle.forward()
 end
 
 while (stop == false) do
