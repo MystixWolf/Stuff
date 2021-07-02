@@ -13,7 +13,7 @@ local CHEST = {
 
 local torchPlacement = 0
 local fullInventory = false
-local hasTorch = true
+local hasTorch = false
 local stop = false
 
 function checkFuel()
@@ -66,6 +66,7 @@ function findTorchslot()
         if (currentItem ~= nil) then
             for n = 1, #TORCH do
                 if (currentItem.name == TORCH[n]) then
+                    hasTorch = true
                     return i
                 end
             end
@@ -88,6 +89,8 @@ end
 
 local chest_slot = findChestslot()
 local torch_slot = findTorchslot()
+
+print(chest_slot .. "\n" .. torch_slot)
 
 function placeTorch()
     if (hasTorch == true) then
