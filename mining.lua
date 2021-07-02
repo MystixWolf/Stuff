@@ -100,8 +100,7 @@ function placeTorch()
         fullInventory = true
         placeChest()
         stop = true
-        os.exit()
-        return stop
+        return os.exit()
     end
     
 end
