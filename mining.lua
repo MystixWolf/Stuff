@@ -64,22 +64,6 @@ function findChestslot()
     end
 end
 
-function placeTorch()
-    if (hasTorch == true) then
-        if (torchPlacement == 11) then
-            turtle.select(torch_slot)
-            turtle.placeDown()
-            torchPlacement = 0
-        end
-    else
-        fullInventory = true
-        placeChest()
-        stop = true
-        return stop
-    end
-    
-end
-
 function checkInventory()
     if(turtle.getItemDetail(16) ~= nil) then
         if(turtle.getItemCount(16) < 64) then
@@ -97,6 +81,22 @@ function dumpInventory()
     for i = 3, 16 do
         turtle.select(i)
         turtle.dropDown()
+    end
+end
+
+function placeTorch()
+    print(hasTorch)
+    if (hasTorch == true) then
+        if (torchPlacement == 11) then
+            turtle.select(torch_slot)
+            turtle.placeDown()
+            torchPlacement = 0
+        end
+    else
+        fullInventory = true
+        placeChest()
+        stop = true
+        return stop
     end
 end
 
@@ -154,7 +154,6 @@ while (stop == false) do
     findTorchslot()
     print(chest_slot)
     print(torch_slot)
-    print(hasTorch)
     checkInventory()                  
     Mine()
     torchPlacement = torchPlacement + 1
