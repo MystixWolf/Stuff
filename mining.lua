@@ -22,4 +22,13 @@ function checkFuel()
     end
 end
 
-checkFuel()
+function Mine()
+    turtle.dig()
+    turtle.digUp()
+    turtle.digDown()
+    turtle.forward()
+end
+while true do
+    checkFuel()
+    Mine()
+end
