@@ -13,6 +13,8 @@ local CHEST = {
 
 local torchPlacement = 0
 local fullInventory = false
+local hasTorch = true
+local stop = false
 
 function checkFuel()
     local currentFuellevel = turtle.getFuelLevel()
@@ -88,18 +90,32 @@ local chest_slot = findChestslot()
 local torch_slot = findTorchslot()
 
 function placeTorch()
-    if (torchPlacement == 11) then
-        turtle.select(torch_slot)
-        turtle.placeDown()
-        torchPlacement = 0
+    if (hasTorch == true) then
+        if (torchPlacement == 11) then
+            turtle.select(torch_slot)
+            turtle.placeDown()
+            torchPlacement = 0
+        end
+    else
+        fullInventory = true
+        placeChest()
+        stop = true
+        return stop
     end
+    
 end
 
 function checkInventory()
-    local currentItem = turtle.getItemDetail(16)
-    if(currentItem ~= nil) then
-        if(turtle.getItemCount(16) > 32) then
+    if(turtle.getItemDetail(16) ~= nil) then
+        if(turtle.getItemCount(16) < 64) then
             fullInventory = true
+        end
+    end
+
+    for i = 1, 2 do
+        local currentItem = turtle.getItemDetail(i)
+        if(currentItem.name ~= TORCH) then
+            hasTorch = false
         end
     end
 end
@@ -134,10 +150,8 @@ function placeChest()
     
 end
 
-while true do
+while (stop = false) do
     checkFuel()
-    findChestslot()
-    findTorchslot()
     checkInventory()                  
     Mine()
     torchPlacement = torchPlacement + 1
