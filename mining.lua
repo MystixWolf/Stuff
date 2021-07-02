@@ -38,7 +38,7 @@ function checkFuel()
 end
 
 function findTorchslot()
-    for i = 1, 16 do
+    for i = 1, 2 do
         local currentItem = turtle.getItemDetail(i)
         if (currentItem ~= nil) then
             for n = 1, #TORCH do
@@ -52,7 +52,7 @@ function findTorchslot()
 end
 
 function findChestslot()
-    for i = 1, 16 do
+    for i = 1, 2 do
         local currentItem = turtle.getItemDetail(i)
         if (currentItem ~= nil) then
             for n = 1, #CHEST do
@@ -154,6 +154,7 @@ while (stop == false) do
     findTorchslot()
     print(chest_slot)
     print(torch_slot)
+    print(hasTorch)
     checkInventory()                  
     Mine()
     torchPlacement = torchPlacement + 1
