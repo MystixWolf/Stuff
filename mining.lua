@@ -14,6 +14,8 @@ local CHEST = {
 local torchPlacement = 0
 local fullInventory = false
 local hasTorch = false
+local torch_slot = 1
+local chest_slot = 1
 local stop = false
 
 function checkFuel()
@@ -87,8 +89,8 @@ function findChestslot()
     end
 end
 
-local chest_slot = findChestslot()
-local torch_slot = findTorchslot()
+chest_slot = findChestslot()
+torch_slot = findTorchslot()
 
 function placeTorch()
     if (hasTorch == true) then
