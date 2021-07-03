@@ -14,7 +14,7 @@ local CHEST = {
 local torchPlacement = 0
 local fullInventory = false
 local torch_slot = 1
-local hasTorch = false
+local hasTorch = true
 local chest_slot = 1
 local stop = false
 
@@ -86,17 +86,19 @@ end
 
 function placeTorch()
     local currentItem = turtle.getItemDetail(torch_slot)
+    print(hasTorch)
     if (hasTorch == true) then
         if (torchPlacement == 11) then
             turtle.select(torch_slot)
             turtle.placeDown()
             torchPlacement = 0
         end
-    else
-        fullInventory = true
-        placeChest()
-        stop = true
-        return stop
+    else if (hasTorch == false) then
+            fullInventory = true
+            placeChest()
+            stop = true
+            return stop
+        end
     end
 end
 
