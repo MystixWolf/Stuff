@@ -152,11 +152,12 @@ function Mine()
 end
 
 
-findChestslot()
-findTorchslot()
+
 
 while (stop == false) do
     checkFuel()
+    findChestslot()
+    findTorchslot()
     print(chest_slot)
     print(torch_slot)
     checkInventory()                  
