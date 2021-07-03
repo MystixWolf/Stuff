@@ -85,7 +85,7 @@ end
 
 function placeTorch()
     local currentItem = turtle.getItemDetail(torch_slot)
-    if (currentItem.name == TORCH) then
+    if (hasTorch == true) then
         if (torchPlacement == 11) then
             turtle.select(torch_slot)
             turtle.placeDown()
