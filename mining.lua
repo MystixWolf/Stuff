@@ -50,8 +50,6 @@ function findTorchslot()
         end
     end
     local currentItem = turtle.getItemDetail(torch_slot)
-    print(currentItem.name)
-    print(TORCH[1])
     if (currentItem.name ~= TORCH[1]) then
         hasTorch = false
     end
@@ -87,7 +85,6 @@ end
 
 function placeTorch()
     local currentItem = turtle.getItemDetail(torch_slot)
-    print(hasTorch)
     if (hasTorch == true) then
         if (torchPlacement == 11) then
             turtle.select(torch_slot)
@@ -158,8 +155,6 @@ while (stop == false) do
     checkFuel()
     findChestslot()
     findTorchslot()
-    print(chest_slot)
-    print(torch_slot)
     checkInventory()                  
     Mine()
     torchPlacement = torchPlacement + 1
