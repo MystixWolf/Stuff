@@ -70,11 +70,6 @@ function checkInventory()
             fullInventory = true
         end
     end
-
-    local currentItem = turtle.getItemDetail(torch_slot)
-    if (currentItem.name ~= TORCH) then
-        hasTorch = false
-    end
 end
 
 function dumpInventory()
