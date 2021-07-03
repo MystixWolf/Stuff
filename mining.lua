@@ -145,6 +145,13 @@ function Mine()
     turtle.forward()
 end
 
+local currentItem = turtle.getItemDetail(torch_slot)
+print(currentItem.name)
+print(TORCH)
+if (currentItem.name ~= TORCH) then
+    hasTorch = false
+end
+
 while (stop == false) do
     checkFuel()
     findChestslot()
