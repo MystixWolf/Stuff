@@ -14,6 +14,7 @@ local CHEST = {
 local torchPlacement = 0
 local fullInventory = false
 local torch_slot = 1
+local hasTorch = false
 local chest_slot = 1
 local stop = false
 
