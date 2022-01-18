@@ -38,7 +38,7 @@ function checkFuel()
 end
 
 function findTorchslot()
-    for i = 1, 16 do
+    for i = 1, 2 do
         local currentItem = turtle.getItemDetail(i)
         if (currentItem ~= nil) then
             for n = 1, #TORCH do
@@ -50,18 +50,13 @@ function findTorchslot()
         end
     end
     local currentItem = turtle.getItemDetail(torch_slot)
-    -- Testing currentItem and torch slot
-    -- yo add more bytes please
-    print(torch_slot)
-    print(currentItem.name)
-    
     if (currentItem.name ~= TORCH[1]) then
         hasTorch = false
     end
 end
 
 function findChestslot()
-    for i = 1, 16 do
+    for i = 1, 2 do
         local currentItem = turtle.getItemDetail(i)
         if (currentItem ~= nil) then
             for n = 1, #CHEST do
