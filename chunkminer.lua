@@ -5,30 +5,39 @@ function mine()
     end
 end
 
-function inspect(direction)
-    if (direction == "left") then
-        turtle.turnLeft()
-        result = turtle.inspect()
-        turtle.turnRight()
-        return result
-    elseif (direction == "right") then
-        turtle.turnRight()
-        result = turtle.inspect()
-        turtle.turnLeft()
-        return result
-    end
-    
-end
-
---for i = 1, 16 do
---    mine()
---end
-function test()
-    while false do 
-        --nothing
-    end
-end
-
-io.write('Which direction is to mine (left or right)\n')
+io.write('Which direction is the chunk(left or right)\n')
 input = io.read()
-io.write('\n', input)
+
+if (input == "left") then
+    test = 1 -- odd is left and even is right
+    for i = 1, 16 do
+        mine()
+        if ((test % 2) == 0) then -- if even
+            turtle.turnRight()
+            turtle.forward()
+            turtle.turnRight()
+            test = test + 1
+        else
+            turtle.turnLeft()
+            turtle.forward()
+            turtle.turnLeft()
+            test = test + 1
+        end
+    end
+elseif (input == "right") then
+    test = 1 -- odd is left and even is right
+    for i = 1, 16 do
+        mine()
+        if ((test % 2) == 0) then -- if even
+            turtle.turnRight()
+            turtle.forward()
+            turtle.turnRight()
+            test = test + 1
+        else
+            turtle.turnLeft()
+            turtle.forward()
+            turtle.turnLeft()
+            test = test + 1
+        end
+    end
+end
