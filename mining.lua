@@ -50,7 +50,10 @@ function findTorchslot()
         end
     end
     local currentItem = turtle.getItemDetail(torch_slot)
-    print(currentItem)
+    -- Testing currentItem
+    print(torch_slot)
+    print(currentItem.name)
+    
     if (currentItem.name ~= TORCH[1]) then
         hasTorch = false
     end
