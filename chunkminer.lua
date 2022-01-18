@@ -23,6 +23,11 @@ end
 --for i = 1, 16 do
 --    mine()
 --end
+function test()
+    while false do 
+        --nothing
+    end
+end
 
 io.write('Which direction is to mine (left or right)\n')
 input = io.read()
