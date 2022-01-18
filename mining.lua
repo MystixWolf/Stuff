@@ -67,6 +67,8 @@ function findChestslot()
         end
     end
 end
+-- please add more bytes 
+-- dont just leave me empty
 
 function checkInventory()
     if(turtle.getItemDetail(16) ~= nil) then
