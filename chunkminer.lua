@@ -1,5 +1,4 @@
-print(test)
---test
---test2
---test3
---test4
+function mine()
+    for i = 1, 16 do 
+        turtle.dig()
+        turtle.forward()
