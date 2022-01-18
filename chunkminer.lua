@@ -26,7 +26,7 @@ function chunkminer(direction)
         end
         mine()
         turtle.digDown()
-        turtle.Down()
+        turtle.down()
         turtle.turnLeft()
     elseif (direction == "right") then
         test = 1 -- odd is left and even is right
@@ -48,7 +48,7 @@ function chunkminer(direction)
         end
         mine()
         turtle.digDown()
-        turtle.Down()
+        turtle.down()
         turtle.turnRight()
     end
 end
