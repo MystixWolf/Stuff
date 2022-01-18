@@ -51,6 +51,7 @@ function findTorchslot()
     end
     local currentItem = turtle.getItemDetail(torch_slot)
     -- Testing currentItem and torch slot
+    -- yo add more bytes please
     print(torch_slot)
     print(currentItem.name)
     
