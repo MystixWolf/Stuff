@@ -53,6 +53,7 @@ function chunkminer(direction)
     end
 end
 
+-- Getting the direction of the chunk
 io.write('Which direction is the chunk(left or right)\n')
 input = io.read()
 
