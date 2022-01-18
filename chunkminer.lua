@@ -24,6 +24,6 @@ end
 --    mine()
 --end
 
-io.write('Which direction is to mine (left or right)')
+io.write('Which direction is to mine (left or right)\n')
 input = io.read()
-io.write(input)
+io.write('\n', input)
