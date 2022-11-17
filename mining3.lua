@@ -1,6 +1,7 @@
 local ACCEPTED_FUELS = {
     "minecraft:coal_block",
-    "minecraft:coal"
+    "minecraft:coal",
+    "minecraft:charcoal"
 }
 
 local TORCH = {
